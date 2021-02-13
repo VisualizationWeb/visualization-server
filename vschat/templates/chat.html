@@ -1,0 +1,119 @@
+{% load static %}
+<html lang="ko">
+  <script type="text/javascript" src="/static/js/jquery-3.5.1.min.js"></script>
+ 
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+  </head>
+  <body>
+
+    <!-- 시각화 부분 -->
+    <div class="visual-content" id="visual-content"> </div>
+    
+    <!-- 채팅창 -->
+    <div class="chat-content">
+
+      <!-- 헤더 -->
+      <div class="chat_header"> 
+        <span></span> 
+      </div>
+      
+      <!-- 채팅 내용 보여주는 영역 -->
+      <div id="divbox" class="chatting"></div>
+
+      <!-- 입력할 메세지 박스 -->
+      <div class = "input_message_box">
+        <form id="form" class="form-class"> 
+          <input type="text" name="input1" class="chat_input" id="input1" /> 
+          <input type="button" value="전송" id="btn_submit" class="send_btn" /> 
+        </form>
+      </div>
+    </div>
+    
+    <!-- 입력에 대한 시각화 출력 -->
+    <script> 
+      var xValues;
+      var yValues;
+      var label;
+      var legend_value;
+
+      
+      $('#btn_submit').click(function () { 
+        send(); 
+      }); 
+
+      $('#form').on('submit', function(e){ 
+        // visual-content 요소 비우기(그 다음에 새로운 그래프 출력)
+        $("#visual-content").empty();
+        e.preventDefault(); 
+        send(); 
+      }); 
+      
+      // 입력 값 전송
+      function send(){ 
+        // 입력 값 없으면 에러 메세지
+        if($('#input1').val() == ''){
+          alert("input message!");
+        }
+
+        // 입력 값 있을 때 처리
+        else{
+          // 입력 값 출력
+          $('#divbox').append('<div class="msg_box send"><span>'+$('#input1').val()+'</span></div>'); 
+          $("#divbox").scrollTop($("#divbox")[0].scrollHeight); 
+          console.log("serial"+$('#form').serialize()) 
+
+          // 입력 값에 대한 처리
+          $.ajax({ 
+            url: 'http://127.0.0.1:8000/chat_service/', //챗봇 api url
+            async:false,
+            type: 'post', 
+            dataType: 'json', 
+            data: $('#form').serialize(), 
+            success: function(data) { 
+              // 입력에 대한 응답 msgbox에 출력
+              $('#response').html(data.response); 
+              $('#divbox').append('<div class="msg_box receive"><span>'+ data.response +'</span></div>'); 
+              $("#divbox").scrollTop($("#divbox")[0].scrollHeight); 
+              // 쿼리 결과 받아와 배열로 저장
+              $('#xValues').html(data.xValues);
+              console.log(data.xValues);
+              xValues = data.xValues;
+              $('#yValues').html(data.yValues);
+              yValues = data.yValues;
+              // 라벨 받아오기
+              $('#label').html(data.label);
+              label = String(data.label);
+              $('#legend_value').html(data.legend_value);
+              legend_value = data.legend_value;
+              console.log(legend_value);
+              } 
+            }); 
+          // 입력 창 비우기
+          $('#input1').val(''); 
+
+          
+
+          // label이 1이면 바차트 출력, 아니면 라인차트 출력
+          if(label == '6'){
+            $.getScript("static/js/linechart.js");
+          }
+          else if(label == '2'){
+            $.getScript("static/js/weeks_avg_chart.js");
+          }
+          else{
+            $.getScript("static/js/barchart.js");
+          }
+
+        } 
+      }     
+    </script>
+
+  </body>
+</html>

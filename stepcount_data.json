@@ -1,0 +1,2144 @@
+[
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-01 00:00:00.000",
+    "fields": {
+      "stepCount": 6312
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-02 00:00:00.000",
+    "fields": {
+      "stepCount": 9152
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-03 00:00:00.000",
+    "fields": {
+      "stepCount": 5848
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-04 00:00:00.000",
+    "fields": {
+      "stepCount": 4786
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-05 00:00:00.000",
+    "fields": {
+      "stepCount": 6981
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-06 00:00:00.000",
+    "fields": {
+      "stepCount": 7153
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-07 00:00:00.000",
+    "fields": {
+      "stepCount": 9215
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-08 00:00:00.000",
+    "fields": {
+      "stepCount": 11743
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-09 00:00:00.000",
+    "fields": {
+      "stepCount": 8146
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-10 00:00:00.000",
+    "fields": {
+      "stepCount": 8423
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-11 00:00:00.000",
+    "fields": {
+      "stepCount": 6895
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-12 00:00:00.000",
+    "fields": {
+      "stepCount": 7152
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-13 00:00:00.000",
+    "fields": {
+      "stepCount": 8941
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-14 00:00:00.000",
+    "fields": {
+      "stepCount": 9512
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-15 00:00:00.000",
+    "fields": {
+      "stepCount": 11095
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-16 00:00:00.000",
+    "fields": {
+      "stepCount": 6899
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-17 00:00:00.000",
+    "fields": {
+      "stepCount": 8460
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-18 00:00:00.000",
+    "fields": {
+      "stepCount": 8016
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-19 00:00:00.000",
+    "fields": {
+      "stepCount": 7356
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-20 00:00:00.000",
+    "fields": {
+      "stepCount": 8561
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-21 00:00:00.000",
+    "fields": {
+      "stepCount": 8469
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-22 00:00:00.000",
+    "fields": {
+      "stepCount": 7915
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-23 00:00:00.000",
+    "fields": {
+      "stepCount": 13815
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-24 00:00:00.000",
+    "fields": {
+      "stepCount": 7488
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-25 00:00:00.000",
+    "fields": {
+      "stepCount": 9414
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-26 00:00:00.000",
+    "fields": {
+      "stepCount": 6905
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-27 00:00:00.000",
+    "fields": {
+      "stepCount": 10629
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-28 00:00:00.000",
+    "fields": {
+      "stepCount": 6992
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-29 00:00:00.000",
+    "fields": {
+      "stepCount": 4896
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-30 00:00:00.000",
+    "fields": {
+      "stepCount": 9457
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-03-31 00:00:00.000",
+    "fields": {
+      "stepCount": 8768
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-01 00:00:00.000",
+    "fields": {
+      "stepCount": 6815
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-02 00:00:00.000",
+    "fields": {
+      "stepCount": 9951
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-03 00:00:00.000",
+    "fields": {
+      "stepCount": 4786
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-04 00:00:00.000",
+    "fields": {
+      "stepCount": 7831
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-05 00:00:00.000",
+    "fields": {
+      "stepCount": 7611
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-06 00:00:00.000",
+    "fields": {
+      "stepCount": 5981
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-07 00:00:00.000",
+    "fields": {
+      "stepCount": 7668
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-08 00:00:00.000",
+    "fields": {
+      "stepCount": 9416
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-09 00:00:00.000",
+    "fields": {
+      "stepCount": 8865
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-10 00:00:00.000",
+    "fields": {
+      "stepCount": 6890
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-11 00:00:00.000",
+    "fields": {
+      "stepCount": 5083
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-12 00:00:00.000",
+    "fields": {
+      "stepCount": 3841
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-13 00:00:00.000",
+    "fields": {
+      "stepCount": 9457
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-14 00:00:00.000",
+    "fields": {
+      "stepCount": 7198
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-15 00:00:00.000",
+    "fields": {
+      "stepCount": 7658
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-16 00:00:00.000",
+    "fields": {
+      "stepCount": 10816
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-17 00:00:00.000",
+    "fields": {
+      "stepCount": 7342
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-18 00:00:00.000",
+    "fields": {
+      "stepCount": 6109
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-19 00:00:00.000",
+    "fields": {
+      "stepCount": 6853
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-20 00:00:00.000",
+    "fields": {
+      "stepCount": 7381
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-21 00:00:00.000",
+    "fields": {
+      "stepCount": 8230
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-22 00:00:00.000",
+    "fields": {
+      "stepCount": 7511
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-23 00:00:00.000",
+    "fields": {
+      "stepCount": 8940
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-24 00:00:00.000",
+    "fields": {
+      "stepCount": 6943
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-25 00:00:00.000",
+    "fields": {
+      "stepCount": 6381
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-26 00:00:00.000",
+    "fields": {
+      "stepCount": 5895
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-27 00:00:00.000",
+    "fields": {
+      "stepCount": 9401
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-28 00:00:00.000",
+    "fields": {
+      "stepCount": 7216
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-29 00:00:00.000",
+    "fields": {
+      "stepCount": 5199
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-04-30 00:00:00.000",
+    "fields": {
+      "stepCount": 8810
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-01 00:00:00.000",
+    "fields": {
+      "stepCount": 4935
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-02 00:00:00.000",
+    "fields": {
+      "stepCount": 11504
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-03 00:00:00.000",
+    "fields": {
+      "stepCount": 15315
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-04 00:00:00.000",
+    "fields": {
+      "stepCount": 7995
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-05 00:00:00.000",
+    "fields": {
+      "stepCount": 6081
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-06 00:00:00.000",
+    "fields": {
+      "stepCount": 8359
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-07 00:00:00.000",
+    "fields": {
+      "stepCount": 5817
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-08 00:00:00.000",
+    "fields": {
+      "stepCount": 7161
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-09 00:00:00.000",
+    "fields": {
+      "stepCount": 7925
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-10 00:00:00.000",
+    "fields": {
+      "stepCount": 7582
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-11 00:00:00.000",
+    "fields": {
+      "stepCount": 9128
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-12 00:00:00.000",
+    "fields": {
+      "stepCount": 6714
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-13 00:00:00.000",
+    "fields": {
+      "stepCount": 9486
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-14 00:00:00.000",
+    "fields": {
+      "stepCount": 7335
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-15 00:00:00.000",
+    "fields": {
+      "stepCount": 6921
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-16 00:00:00.000",
+    "fields": {
+      "stepCount": 12811
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-17 00:00:00.000",
+    "fields": {
+      "stepCount": 8146
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-18 00:00:00.000",
+    "fields": {
+      "stepCount": 4482
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-19 00:00:00.000",
+    "fields": {
+      "stepCount": 9218
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-20 00:00:00.000",
+    "fields": {
+      "stepCount": 7436
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-21 00:00:00.000",
+    "fields": {
+      "stepCount": 7652
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-22 00:00:00.000",
+    "fields": {
+      "stepCount": 8186
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-23 00:00:00.000",
+    "fields": {
+      "stepCount": 6448
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-24 00:00:00.000",
+    "fields": {
+      "stepCount": 11358
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-25 00:00:00.000",
+    "fields": {
+      "stepCount": 10810
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-26 00:00:00.000",
+    "fields": {
+      "stepCount": 6845
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-27 00:00:00.000",
+    "fields": {
+      "stepCount": 8618
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-28 00:00:00.000",
+    "fields": {
+      "stepCount": 7786
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-29 00:00:00.000",
+    "fields": {
+      "stepCount": 7953
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-30 00:00:00.000",
+    "fields": {
+      "stepCount": 9368
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-05-31 00:00:00.000",
+    "fields": {
+      "stepCount": 6339
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-01 00:00:00.000",
+    "fields": {
+      "stepCount": 6914
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-02 00:00:00.000",
+    "fields": {
+      "stepCount": 9448
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-03 00:00:00.000",
+    "fields": {
+      "stepCount": 7103
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-04 00:00:00.000",
+    "fields": {
+      "stepCount": 6656
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-05 00:00:00.000",
+    "fields": {
+      "stepCount": 8464
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-06 00:00:00.000",
+    "fields": {
+      "stepCount": 18571
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-07 00:00:00.000",
+    "fields": {
+      "stepCount": 5598
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-08 00:00:00.000",
+    "fields": {
+      "stepCount": 6717
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-09 00:00:00.000",
+    "fields": {
+      "stepCount": 5160
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-10 00:00:00.000",
+    "fields": {
+      "stepCount": 9052
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-11 00:00:00.000",
+    "fields": {
+      "stepCount": 7160
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-12 00:00:00.000",
+    "fields": {
+      "stepCount": 9693
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-13 00:00:00.000",
+    "fields": {
+      "stepCount": 5689
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-14 00:00:00.000",
+    "fields": {
+      "stepCount": 4968
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-15 00:00:00.000",
+    "fields": {
+      "stepCount": 9841
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-16 00:00:00.000",
+    "fields": {
+      "stepCount": 6353
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-17 00:00:00.000",
+    "fields": {
+      "stepCount": 8491
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-18 00:00:00.000",
+    "fields": {
+      "stepCount": 9745
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-19 00:00:00.000",
+    "fields": {
+      "stepCount": 11865
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-20 00:00:00.000",
+    "fields": {
+      "stepCount": 6487
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-21 00:00:00.000",
+    "fields": {
+      "stepCount": 6581
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-22 00:00:00.000",
+    "fields": {
+      "stepCount": 6890
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-23 00:00:00.000",
+    "fields": {
+      "stepCount": 8991
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-24 00:00:00.000",
+    "fields": {
+      "stepCount": 6102
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-25 00:00:00.000",
+    "fields": {
+      "stepCount": 7128
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-26 00:00:00.000",
+    "fields": {
+      "stepCount": 8993
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-27 00:00:00.000",
+    "fields": {
+      "stepCount": 9733
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-28 00:00:00.000",
+    "fields": {
+      "stepCount": 8418
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-29 00:00:00.000",
+    "fields": {
+      "stepCount": 7210
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-06-30 00:00:00.000",
+    "fields": {
+      "stepCount": 13588
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-01 00:00:00.000",
+    "fields": {
+      "stepCount": 4955
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-02 00:00:00.000",
+    "fields": {
+      "stepCount": 15550
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-03 00:00:00.000",
+    "fields": {
+      "stepCount": 7951
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-04 00:00:00.000",
+    "fields": {
+      "stepCount": 7113
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-05 00:00:00.000",
+    "fields": {
+      "stepCount": 7448
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-06 00:00:00.000",
+    "fields": {
+      "stepCount": 6181
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-07 00:00:00.000",
+    "fields": {
+      "stepCount": 9055
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-08 00:00:00.000",
+    "fields": {
+      "stepCount": 6786
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-09 00:00:00.000",
+    "fields": {
+      "stepCount": 5384
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-10 00:00:00.000",
+    "fields": {
+      "stepCount": 6547
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-11 00:00:00.000",
+    "fields": {
+      "stepCount": 7669
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-12 00:00:00.000",
+    "fields": {
+      "stepCount": 9840
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-13 00:00:00.000",
+    "fields": {
+      "stepCount": 4918
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-14 00:00:00.000",
+    "fields": {
+      "stepCount": 9641
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-15 00:00:00.000",
+    "fields": {
+      "stepCount": 4798
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-16 00:00:00.000",
+    "fields": {
+      "stepCount": 17415
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-17 00:00:00.000",
+    "fields": {
+      "stepCount": 8948
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-18 00:00:00.000",
+    "fields": {
+      "stepCount": 4196
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-19 00:00:00.000",
+    "fields": {
+      "stepCount": 9554
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-20 00:00:00.000",
+    "fields": {
+      "stepCount": 6308
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-21 00:00:00.000",
+    "fields": {
+      "stepCount": 7839
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-22 00:00:00.000",
+    "fields": {
+      "stepCount": 4453
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-23 00:00:00.000",
+    "fields": {
+      "stepCount": 4782
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-24 00:00:00.000",
+    "fields": {
+      "stepCount": 7555
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-25 00:00:00.000",
+    "fields": {
+      "stepCount": 9048
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-26 00:00:00.000",
+    "fields": {
+      "stepCount": 9155
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-27 00:00:00.000",
+    "fields": {
+      "stepCount": 5895
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-28 00:00:00.000",
+    "fields": {
+      "stepCount": 5153
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-29 00:00:00.000",
+    "fields": {
+      "stepCount": 6958
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-30 00:00:00.000",
+    "fields": {
+      "stepCount": 9005
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-07-31 00:00:00.000",
+    "fields": {
+      "stepCount": 7536
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-01 00:00:00.000",
+    "fields": {
+      "stepCount": 5874
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-02 00:00:00.000",
+    "fields": {
+      "stepCount": 8941
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-03 00:00:00.000",
+    "fields": {
+      "stepCount": 6889
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-04 00:00:00.000",
+    "fields": {
+      "stepCount": 4897
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-05 00:00:00.000",
+    "fields": {
+      "stepCount": 8477
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-06 00:00:00.000",
+    "fields": {
+      "stepCount": 10352
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-07 00:00:00.000",
+    "fields": {
+      "stepCount": 5289
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-08 00:00:00.000",
+    "fields": {
+      "stepCount": 6101
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-09 00:00:00.000",
+    "fields": {
+      "stepCount": 8455
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-10 00:00:00.000",
+    "fields": {
+      "stepCount": 9012
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-11 00:00:00.000",
+    "fields": {
+      "stepCount": 6581
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-12 00:00:00.000",
+    "fields": {
+      "stepCount": 7782
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-13 00:00:00.000",
+    "fields": {
+      "stepCount": 9007
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-14 00:00:00.000",
+    "fields": {
+      "stepCount": 6021
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-15 00:00:00.000",
+    "fields": {
+      "stepCount": 4385
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-16 00:00:00.000",
+    "fields": {
+      "stepCount": 5954
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-17 00:00:00.000",
+    "fields": {
+      "stepCount": 6814
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-18 00:00:00.000",
+    "fields": {
+      "stepCount": 8895
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-19 00:00:00.000",
+    "fields": {
+      "stepCount": 12884
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-20 00:00:00.000",
+    "fields": {
+      "stepCount": 8469
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-21 00:00:00.000",
+    "fields": {
+      "stepCount": 6943
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-22 00:00:00.000",
+    "fields": {
+      "stepCount": 13490
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-23 00:00:00.000",
+    "fields": {
+      "stepCount": 5096
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-24 00:00:00.000",
+    "fields": {
+      "stepCount": 11522
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-25 00:00:00.000",
+    "fields": {
+      "stepCount": 15015
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-26 00:00:00.000",
+    "fields": {
+      "stepCount": 16529
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-27 00:00:00.000",
+    "fields": {
+      "stepCount": 5267
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-28 00:00:00.000",
+    "fields": {
+      "stepCount": 13636
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-29 00:00:00.000",
+    "fields": {
+      "stepCount": 14832
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-30 00:00:00.000",
+    "fields": {
+      "stepCount": 7581
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-08-31 00:00:00.000",
+    "fields": {
+      "stepCount": 7411
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-01 00:00:00.000",
+    "fields": {
+      "stepCount": 6006
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-02 00:00:00.000",
+    "fields": {
+      "stepCount": 16205
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-03 00:00:00.000",
+    "fields": {
+      "stepCount": 7555
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-04 00:00:00.000",
+    "fields": {
+      "stepCount": 13753
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-05 00:00:00.000",
+    "fields": {
+      "stepCount": 11127
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-06 00:00:00.000",
+    "fields": {
+      "stepCount": 15483
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-07 00:00:00.000",
+    "fields": {
+      "stepCount": 8237
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-08 00:00:00.000",
+    "fields": {
+      "stepCount": 12541
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-09 00:00:00.000",
+    "fields": {
+      "stepCount": 7911
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-10 00:00:00.000",
+    "fields": {
+      "stepCount": 5321
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-11 00:00:00.000",
+    "fields": {
+      "stepCount": 16987
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-12 00:00:00.000",
+    "fields": {
+      "stepCount": 9131
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-13 00:00:00.000",
+    "fields": {
+      "stepCount": 9247
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-14 00:00:00.000",
+    "fields": {
+      "stepCount": 11095
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-15 00:00:00.000",
+    "fields": {
+      "stepCount": 12990
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-16 00:00:00.000",
+    "fields": {
+      "stepCount": 10737
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-17 00:00:00.000",
+    "fields": {
+      "stepCount": 9151
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-18 00:00:00.000",
+    "fields": {
+      "stepCount": 16691
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-19 00:00:00.000",
+    "fields": {
+      "stepCount": 8767
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-20 00:00:00.000",
+    "fields": {
+      "stepCount": 12775
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-21 00:00:00.000",
+    "fields": {
+      "stepCount": 16976
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-22 00:00:00.000",
+    "fields": {
+      "stepCount": 7023
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-23 00:00:00.000",
+    "fields": {
+      "stepCount": 9913
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-24 00:00:00.000",
+    "fields": {
+      "stepCount": 9961
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-25 00:00:00.000",
+    "fields": {
+      "stepCount": 7906
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-26 00:00:00.000",
+    "fields": {
+      "stepCount": 15615
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-27 00:00:00.000",
+    "fields": {
+      "stepCount": 5417
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-28 00:00:00.000",
+    "fields": {
+      "stepCount": 13396
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-29 00:00:00.000",
+    "fields": {
+      "stepCount": 10828
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-09-30 00:00:00.000",
+    "fields": {
+      "stepCount": 14644
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-01 00:00:00.000",
+    "fields": {
+      "stepCount": 16462
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-02 00:00:00.000",
+    "fields": {
+      "stepCount": 10384
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-03 00:00:00.000",
+    "fields": {
+      "stepCount": 14120
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-04 00:00:00.000",
+    "fields": {
+      "stepCount": 5837
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-05 00:00:00.000",
+    "fields": {
+      "stepCount": 6793
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-06 00:00:00.000",
+    "fields": {
+      "stepCount": 14914
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-07 00:00:00.000",
+    "fields": {
+      "stepCount": 5171
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-08 00:00:00.000",
+    "fields": {
+      "stepCount": 5237
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-09 00:00:00.000",
+    "fields": {
+      "stepCount": 15970
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-10 00:00:00.000",
+    "fields": {
+      "stepCount": 8815
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-11 00:00:00.000",
+    "fields": {
+      "stepCount": 8993
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-12 00:00:00.000",
+    "fields": {
+      "stepCount": 11858
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-13 00:00:00.000",
+    "fields": {
+      "stepCount": 10528
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-14 00:00:00.000",
+    "fields": {
+      "stepCount": 7739
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-15 00:00:00.000",
+    "fields": {
+      "stepCount": 13572
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-16 00:00:00.000",
+    "fields": {
+      "stepCount": 5866
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-17 00:00:00.000",
+    "fields": {
+      "stepCount": 7781
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-18 00:00:00.000",
+    "fields": {
+      "stepCount": 12089
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-19 00:00:00.000",
+    "fields": {
+      "stepCount": 11462
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-20 00:00:00.000",
+    "fields": {
+      "stepCount": 10077
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-21 00:00:00.000",
+    "fields": {
+      "stepCount": 6016
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-22 00:00:00.000",
+    "fields": {
+      "stepCount": 11810
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-23 00:00:00.000",
+    "fields": {
+      "stepCount": 10986
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-24 00:00:00.000",
+    "fields": {
+      "stepCount": 13443
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-25 00:00:00.000",
+    "fields": {
+      "stepCount": 13322
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-26 00:00:00.000",
+    "fields": {
+      "stepCount": 8790
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-27 00:00:00.000",
+    "fields": {
+      "stepCount": 16648
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-28 00:00:00.000",
+    "fields": {
+      "stepCount": 16177
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-29 00:00:00.000",
+    "fields": {
+      "stepCount": 5100
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-30 00:00:00.000",
+    "fields": {
+      "stepCount": 7989
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-10-31 00:00:00.000",
+    "fields": {
+      "stepCount": 12834
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-01 00:00:00.000",
+    "fields": {
+      "stepCount": 9436
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-02 00:00:00.000",
+    "fields": {
+      "stepCount": 13837
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-03 00:00:00.000",
+    "fields": {
+      "stepCount": 11736
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-04 00:00:00.000",
+    "fields": {
+      "stepCount": 14810
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-05 00:00:00.000",
+    "fields": {
+      "stepCount": 13816
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-06 00:00:00.000",
+    "fields": {
+      "stepCount": 14177
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-07 00:00:00.000",
+    "fields": {
+      "stepCount": 14590
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-08 00:00:00.000",
+    "fields": {
+      "stepCount": 16724
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-09 00:00:00.000",
+    "fields": {
+      "stepCount": 6456
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-10 00:00:00.000",
+    "fields": {
+      "stepCount": 16541
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-11 00:00:00.000",
+    "fields": {
+      "stepCount": 11304
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-12 00:00:00.000",
+    "fields": {
+      "stepCount": 13964
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-13 00:00:00.000",
+    "fields": {
+      "stepCount": 12066
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-14 00:00:00.000",
+    "fields": {
+      "stepCount": 14528
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-15 00:00:00.000",
+    "fields": {
+      "stepCount": 8460
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-16 00:00:00.000",
+    "fields": {
+      "stepCount": 6064
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-17 00:00:00.000",
+    "fields": {
+      "stepCount": 13023
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-18 00:00:00.000",
+    "fields": {
+      "stepCount": 8619
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-19 00:00:00.000",
+    "fields": {
+      "stepCount": 16291
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-20 00:00:00.000",
+    "fields": {
+      "stepCount": 5843
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-21 00:00:00.000",
+    "fields": {
+      "stepCount": 15633
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-22 00:00:00.000",
+    "fields": {
+      "stepCount": 13338
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-23 00:00:00.000",
+    "fields": {
+      "stepCount": 11822
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-24 00:00:00.000",
+    "fields": {
+      "stepCount": 5228
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-25 00:00:00.000",
+    "fields": {
+      "stepCount": 5325
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-26 00:00:00.000",
+    "fields": {
+      "stepCount": 9905
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-27 00:00:00.000",
+    "fields": {
+      "stepCount": 13204
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-28 00:00:00.000",
+    "fields": {
+      "stepCount": 12959
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-29 00:00:00.000",
+    "fields": {
+      "stepCount": 10170
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-11-30 00:00:00.000",
+    "fields": {
+      "stepCount": 11246
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-01 00:00:00.000",
+    "fields": {
+      "stepCount": 16568
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-02 00:00:00.000",
+    "fields": {
+      "stepCount": 11841
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-03 00:00:00.000",
+    "fields": {
+      "stepCount": 14997
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-04 00:00:00.000",
+    "fields": {
+      "stepCount": 13804
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-05 00:00:00.000",
+    "fields": {
+      "stepCount": 7826
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-06 00:00:00.000",
+    "fields": {
+      "stepCount": 12110
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-07 00:00:00.000",
+    "fields": {
+      "stepCount": 6552
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-08 00:00:00.000",
+    "fields": {
+      "stepCount": 13512
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-09 00:00:00.000",
+    "fields": {
+      "stepCount": 6089
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-10 00:00:00.000",
+    "fields": {
+      "stepCount": 13795
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-11 00:00:00.000",
+    "fields": {
+      "stepCount": 16998
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-12 00:00:00.000",
+    "fields": {
+      "stepCount": 13835
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-13 00:00:00.000",
+    "fields": {
+      "stepCount": 13144
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-14 00:00:00.000",
+    "fields": {
+      "stepCount": 7544
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-15 00:00:00.000",
+    "fields": {
+      "stepCount": 6774
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-16 00:00:00.000",
+    "fields": {
+      "stepCount": 15344
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-17 00:00:00.000",
+    "fields": {
+      "stepCount": 7976
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-18 00:00:00.000",
+    "fields": {
+      "stepCount": 15091
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-19 00:00:00.000",
+    "fields": {
+      "stepCount": 10216
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-20 00:00:00.000",
+    "fields": {
+      "stepCount": 13328
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-21 00:00:00.000",
+    "fields": {
+      "stepCount": 10115
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-22 00:00:00.000",
+    "fields": {
+      "stepCount": 8207
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-23 00:00:00.000",
+    "fields": {
+      "stepCount": 5791
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-24 00:00:00.000",
+    "fields": {
+      "stepCount": 11177
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-25 00:00:00.000",
+    "fields": {
+      "stepCount": 9279
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-26 00:00:00.000",
+    "fields": {
+      "stepCount": 13583
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-27 00:00:00.000",
+    "fields": {
+      "stepCount": 7566
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-28 00:00:00.000",
+    "fields": {
+      "stepCount": 9165
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-29 00:00:00.000",
+    "fields": {
+      "stepCount": 16521
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-30 00:00:00.000",
+    "fields": {
+      "stepCount": 6143
+    }
+  },
+  {
+    "model": "vschat.stepcount_data",
+    "pk": "2020-12-31 00:00:00.000",
+    "fields": {
+      "stepCount": 6336
+    }
+  }
+]
