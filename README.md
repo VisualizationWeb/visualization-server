@@ -1,4 +1,7 @@
-<center><h1>visualization-server</h1></center>
+<p align="center">
+  <img width="256" height="256" src="https://github.com/VisualizationWeb/visualization-resources/blob/main/icon.png?raw=true">
+  <h1 align="center">visualization-server</h1>
+</p>
 
 <br>
 
