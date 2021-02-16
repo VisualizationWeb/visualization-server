@@ -13,17 +13,25 @@ RUN set -e; \
 	# Cleanup cache
 	apt-get clean; \
 	rm -rf /var/tmp/* /tmp/* /var/lib/apt/lists/*
+
+
+# Keeps Python from generating .pyc files in the container
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# Turns off buffering for easier container logging
 ENV PYTHONUNBUFFERED=1
 
-WORKDIR /code
 
+### Initialize project
+WORKDIR /app
 COPY requirements.txt .
+RUN pip3 install -r requirements.txt
+COPY . /app
 
-RUN pip install -r requirements.txt
 # Switching to a non-root user, please refer to https://aka.ms/vscode-docker-python-user-rights
 RUN useradd appuser && chown -R appuser /app
 USER appuser
 
-COPY . /code/
+EXPOSE 8000
 
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
