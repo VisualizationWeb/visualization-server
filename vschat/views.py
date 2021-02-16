@@ -39,8 +39,8 @@ def page(request):
 
 @csrf_exempt
 def vschat_service(request):
-        # text 입력 받은 후
-    if request.method == 'POST':    
+    # text 입력 받은 후
+    if request.method == 'POST':
         
         # input1 받아옴 + 모델 탑재하고 라벨과 쿼리 받아오기
         input1 = request.POST['input1']
@@ -180,7 +180,7 @@ def vschat_service(request):
         else: 
             del output
             output['response'] = response
-            utput['response'] = "그래프가 출력되었습니다"
+            output['response'] = "그래프가 출력되었습니다"
             output['xValues'] = xValue
             output['yValues'] = yValue
             output['label'] = label
