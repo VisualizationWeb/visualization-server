@@ -159,10 +159,10 @@ def vschat_service(request):
                 show_barchart(query)
                 print('바차트')
         except HTTPError as e:
-            print("httperror")
+            print(e)
             print("데이터를 불러올 수 없습니다. 텍스트를 다시 입력하세요")
         except IndexError as e:
-            print("indexerror")
+            print(e)
             print("데이터를 불러올 수 없습니다. 텍스트를 다시 입력하세요")
         # 예외처리에 대한 알림 메세지 어떻게 출력하는지 보기
 
