@@ -108,7 +108,8 @@ def get_query(user_input1):
     predicted_seq = predicted_seq.replace("+ ", "+")
     predicted_seq = predicted_seq.replace("- ", "-")
     print(predicted_seq)
-    query = "select * from stepcountData where " + predicted_seq + ";"
+
+    return "select * from stepcountData where " + predicted_seq + ";"
 
 
 # templates 과 view 연결
