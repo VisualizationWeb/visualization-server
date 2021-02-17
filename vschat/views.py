@@ -22,17 +22,6 @@ from konlpy.tag import *
 
 NUM_WORDS = 1000
 
-# 날짜와 걸음 수 저장 변수
-xValue = []
-yValue = []
-legend_value = []
-week = ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일','일요일']
-x1 = []
-x2 = []
-y1 = []
-y2 = []
-response = []
-
 
 def get_query(user_input1):
     max_len = 40
