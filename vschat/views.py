@@ -131,11 +131,16 @@ def vschat_service(request):
     print('User message="' + user_input1 + '", Query="' + query + '"')
 
     try:
-        output = {}
-        output['data'] = [{
+        data = [{
             "date": int(datetime.combine(row.saved_time, datetime.min.time()).timestamp() * 1000),
             "stepcount": row.stepCount
         } for row in StepCount_Data.objects.raw(query)]
+
+        output = {
+            # length field is added for debug purpose, NOT for production.
+            'length': len(data),
+            'data': data,
+        }
 
         print(output)
 
