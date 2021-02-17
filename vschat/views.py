@@ -128,6 +128,8 @@ def vschat_service(request):
     # 유저 입력이 어떠한 종류의 query인지 판별
     query = get_query(user_input1)
 
+    print('User message="' + user_input1 + '", Query="' + query + '"')
+
     try:
         output = {}
         output['data'] = [{
@@ -135,7 +137,6 @@ def vschat_service(request):
             "stepcount": row.stepCount
         } for row in StepCount_Data.objects.raw(query)]
 
-        print('User message="' + user_input1 + '", Query="' + query + '"')
         print(output)
 
         return JsonResponse(output, status=200)
