@@ -24,6 +24,7 @@ NUM_WORDS = 1000
 
 
 class QueryResult:
+    label: str
     query: str
     containsComparison: bool = False
 
@@ -59,6 +60,7 @@ def get_query(user_input1: str):
     label = str(np.argmax(prediction[0]))
 
     result = QueryResult()
+    result.label = label
 
     if label == '1':
         print("일주일")
@@ -156,6 +158,7 @@ def vschat_service(request):
     print()
     print('------------------ PRINT QUERY RESULT ------------------')
     print('* User message=' + user_input1)
+    print('* Label=' + result.label)
     print('* Query=' + result.query)
     print('* Contains Comparison=' + str(result.containsComparison))
 
