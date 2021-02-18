@@ -65,7 +65,7 @@ def get_query(user_input1: str):
         result.query = """
             SELECT * FROM stepcountData
                 WHERE saved_time
-                BETWEEN date('now', '-7 days') AND date('now')
+                BETWEEN date('now', '-7 days', '+1 day') AND date('now')
             """
         return result
 
