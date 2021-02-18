@@ -26,7 +26,7 @@ NUM_WORDS = 1000
 class QueryResult:
     label: str
     query: str
-    containsComparison: bool = False
+    contains_comparison: bool = False
 
 
 def get_query(user_input1: str):
@@ -90,7 +90,7 @@ def get_query(user_input1: str):
         return result
 
     if label == '6':
-        result.containsComparison = True
+        result.contains_comparison = True
         print("주별/월별비교")
     
     else:
@@ -157,10 +157,10 @@ def vschat_service(request):
 
     print()
     print('------------------ PRINT QUERY RESULT ------------------')
-    print('* User message=' + user_input1)
+    print('* User Message=' + user_input1)
     print('* Label=' + result.label)
     print('* Query=' + result.query)
-    print('* Contains Comparison=' + str(result.containsComparison))
+    print('* Contains Comparison=' + str(result.contains_comparison))
 
     try:
         data = [{
@@ -170,7 +170,7 @@ def vschat_service(request):
 
         compare_with = None
 
-        if result.containsComparison:
+        if result.contains_comparison:
             mid = (len(data) // 2) + 1
             compare_with = data[1:mid]
             data = data[mid:]
