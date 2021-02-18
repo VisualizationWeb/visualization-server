@@ -23,7 +23,12 @@ from konlpy.tag import *
 NUM_WORDS = 1000
 
 
-def get_query(user_input1):
+class QueryResult:
+    query: str
+    containsComparison: bool = False
+
+
+def get_query(user_input1: str):
     max_len = 40
     vocab_size = 515
     tokenizer = Tokenizer() 
@@ -53,18 +58,37 @@ def get_query(user_input1):
 
     label = str(np.argmax(prediction[0]))
 
+    result = QueryResult()
+
     if label == '1':
-        return "select * from stepcountData where saved_time BETWEEN date('now', '-7 days', 'localtime') AND date('now', 'localtime');"
+        print("일주일")
+        result.query = """
+            SELECT * FROM stepcountData
+                WHERE saved_time
+                BETWEEN date('now', '-7 days') AND date('now')
+            """
+        return result
 
-    elif label == '2':
+    if label == '2':
         print("주별 평균")
-        return "select * from stepcountData where saved_time BETWEEN date('now', '-35 days',  'localtime') AND date('now', 'localtime');"
+        result.query = """
+            SELECT saved_time, cast(avg(stepCount) AS integer) AS stepCount FROM stepcountData
+                WHERE saved_time BETWEEN DATE('now', 'weekday 0', '-28 days', '+1 day') AND DATE('now')
+                GROUP BY strftime('%Y-%W', saved_time)
+            """
+        return result
 
-    elif label == '3':
+    if label == '3':
         print("월별 평균")
-        return "select * from stepcountData where saved_time BETWEEN date('now', '-4 months','start of month', 'localtime') AND date('now', '+1 days', 'localtime');"
+        result.query = """
+            SELECT saved_time, cast(avg(stepCount) AS integer) AS stepCount FROM stepcountData
+                WHERE saved_time BETWEEN date('now', 'start of month', '-4 month', 'localtime') AND date('now', '+1 days', 'localtime')
+                GROUP BY strftime('%Y-%m', saved_time)
+            """
+        return result
 
-    elif label == '6':
+    if label == '6':
+        result.containsComparison = True
         print("주별/월별비교")
     
     else:
@@ -109,7 +133,8 @@ def get_query(user_input1):
     predicted_seq = predicted_seq.replace("- ", "-")
     print(predicted_seq)
 
-    return "select * from stepcountData where " + predicted_seq + ";"
+    result.query = "select * from stepcountData where " + predicted_seq + ";"
+    return result
 
 
 # templates 과 view 연결
@@ -126,15 +151,23 @@ def vschat_service(request):
     user_input1 = request.POST['input1']
 
     # 유저 입력이 어떠한 종류의 query인지 판별
-    query = get_query(user_input1)
+    result = get_query(user_input1)
 
-    print('User message="' + user_input1 + '", Query="' + query + '"')
+    print()
+    print('------------------ PRINT QUERY RESULT ------------------')
+    print('* User message=' + user_input1)
+    print('* Query=' + result.query)
+    print('* Contains Comparison=' + str(result.containsComparison))
 
     try:
         data = [{
             "date": int(datetime.combine(row.saved_time, datetime.min.time()).timestamp() * 1000),
             "stepcount": row.stepCount
-        } for row in StepCount_Data.objects.raw(query)]
+        } for row in StepCount_Data.objects.raw(result.query)]
+
+        print('* Data Length=' + str(len(data)))
+        print('* Start Date=' + datetime.fromtimestamp(data[0]['date'] // 1000).strftime('%Y-%m-%d'))
+        print('* End Date=' + datetime.fromtimestamp(data[-1]['date'] // 1000).strftime('%Y-%m-%d'))
 
         output = {
             # length field is added for debug purpose, NOT for production.
@@ -142,7 +175,9 @@ def vschat_service(request):
             'data': data,
         }
 
-        print(output)
+        print()
+        print('------------------ PRINT OUTPUT ------------------')
+        print(json.dumps(output))
 
         return JsonResponse(output, status=200)
 
