@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
+from django.http import JsonResponse
 from .models import StepCount_Data
 from urllib.error import HTTPError
 # 해당 모델 관련 분류하기 및 주석 처리
@@ -18,351 +19,145 @@ import tensorflow as tf
 import konlpy
 from konlpy.tag import *
 
-# Create your views here.
 
 NUM_WORDS = 1000
 
-# 날짜와 걸음 수 저장 변수
-xValue = []
-yValue = []
-legend_value = []
-week = ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일','일요일']
-x1 = []
-x2 = []
-y1 = []
-y2 = []
-response = []
+
+def get_query(user_input1):
+    max_len = 40
+    vocab_size = 515
+    tokenizer = Tokenizer() 
+
+    with open('./static/word_dict_ver03.json', encoding='UTF8') as json_file:
+        word_index = json.load(json_file)
+        tokenizer.word_index = word_index
+
+    # print(tokenizer.word_index)
+
+    okt = Okt()
+
+    tokenized_sentence = []
+    temp_X = okt.morphs(user_input1, stem=True) # 토큰화
+    tokenized_sentence.append(temp_X)
+    print(tokenized_sentence)
+
+    input_data = tokenizer.texts_to_sequences(tokenized_sentence)
+    print(input_data)
+
+    input_data = pad_sequences(input_data, maxlen=max_len) # padding
+
+    loaded_model = load_model('./static/best_model_ver_relu_epc500.h5')
+    prediction = loaded_model.predict(input_data)
+    print(prediction)
+    print("label: ", np.argmax(prediction[0]))
+
+    label = str(np.argmax(prediction[0]))
+
+    if label == '1':
+        return "select * from stepcountData where saved_time BETWEEN date('now', '-7 days', 'localtime') AND date('now', 'localtime');"
+
+    elif label == '2':
+        print("주별 평균")
+        return "select * from stepcountData where saved_time BETWEEN date('now', '-35 days',  'localtime') AND date('now', 'localtime');"
+
+    elif label == '3':
+        print("월별 평균")
+        return "select * from stepcountData where saved_time BETWEEN date('now', '-4 months','start of month', 'localtime') AND date('now', '+1 days', 'localtime');"
+
+    elif label == '6':
+        print("주별/월별비교")
+    
+    else:
+        print("바차트")
+
+    with open('./static/tokenizer_for_attention.json', encoding='UTF8') as f:
+        data = json.load(f)
+        tokenizer = tokenizer_from_json(data)
+        
+    # 모델 생성
+    model = Seq2seq(sos=tokenizer.word_index['\t'], eos=tokenizer.word_index['\n'])
+    model.load_weights("./static/attention_ckpt/attention_ckpt")
+
+    # Implement algorithm test
+    @tf.function
+    def test_step(model, inputs):
+        return model(inputs, training=False)
+
+    tmp_seq = [" ".join(okt.morphs(user_input1))]
+    print("tmp_seq : ", tmp_seq)
+
+    test_data = list()
+    test_data = tokenizer.texts_to_sequences(tmp_seq)
+    print("tokenized data : ", test_data)
+
+    prd_data = tf.keras.preprocessing.sequence.pad_sequences(test_data,value=0,padding='pre',maxlen=128)
+
+    prd_data = tf.data.Dataset.from_tensor_slices(prd_data).batch(1).prefetch(1024)
+
+    for seq in prd_data :
+        prediction = test_step(model, seq)
+        predicted_seq = tokenizer.sequences_to_texts(prediction.numpy())
+        print(predicted_seq)
+        print("predict tokens : ", prediction.numpy())
+
+    predicted_seq = str(predicted_seq[0]).replace(" _ ", "_")
+    predicted_seq = predicted_seq.replace("e (", "e(")
+    predicted_seq = predicted_seq.replace("' ", "'")
+    predicted_seq = predicted_seq.replace(" '", "'")
+    predicted_seq = predicted_seq.replace(" - ", "-")
+    predicted_seq = predicted_seq.replace("+ ", "+")
+    predicted_seq = predicted_seq.replace("- ", "-")
+    print(predicted_seq)
+
+    return "select * from stepcountData where " + predicted_seq + ";"
+
 
 # templates 과 view 연결
 def page(request):
     return render(request, 'chat.html')
 
+
 @csrf_exempt
 def vschat_service(request):
-    # text 입력 받은 후
-    if request.method == 'POST':
-        
-        # input1 받아옴 + 모델 탑재하고 라벨과 쿼리 받아오기
-        input1 = request.POST['input1']
-
-        okt = Okt()
-
-        max_len = 40
-
-        vocab_size = 515
-        tokenizer = Tokenizer() 
-
-
-        with open('./static/word_dict_ver03.json', encoding='UTF8') as json_file:
-            word_index = json.load(json_file)
-            tokenizer.word_index = word_index
-
-        # print(tokenizer.word_index)
-
-        tokenized_sentence = []
-        temp_X = okt.morphs(input1, stem=True) # 토큰화
-        tokenized_sentence.append(temp_X)
-        print(tokenized_sentence)
-
-        input_data = tokenizer.texts_to_sequences(tokenized_sentence)
-        print(input_data)
-
-        input_data = pad_sequences(input_data, maxlen=max_len) # padding
-
-        loaded_model = load_model('./static/best_model_ver_relu_epc500.h5')
-        prediction = loaded_model.predict(input_data)
-        print(prediction)
-        print("label: ", np.argmax(prediction[0]))
-
-        label = str(np.argmax(prediction[0]))
-
-        if label == '1':
-            query = "select * from stepcountData where saved_time BETWEEN date('now', '-7 days', 'localtime') AND date('now', 'localtime');"
-        elif label == '2':
-            query = "select * from stepcountData where saved_time BETWEEN date('now', '-35 days',  'localtime') AND date('now', 'localtime');"
-        elif label == '3':
-            query = "select * from stepcountData where saved_time BETWEEN date('now', '-4 months','start of month', 'localtime') AND date('now', '+1 days', 'localtime');"
-        else:
-                
-            with open('./static/tokenizer_for_attention.json', encoding='UTF8') as f:
-                data = json.load(f)
-                tokenizer = tokenizer_from_json(data)
-                
-            # 모델 생성
-            model = Seq2seq(sos=tokenizer.word_index['\t'], eos=tokenizer.word_index['\n'])
-
-            model.load_weights("./static/attention_ckpt/attention_ckpt")
-
-            # Implement algorithm test
-            @tf.function
-            def test_step(model, inputs):
-                return model(inputs, training=False)
-
-
-            tmp_seq = [" ".join(okt.morphs(input1))]
-            print("tmp_seq : ", tmp_seq)
-
-            test_data = list()
-            test_data = tokenizer.texts_to_sequences(tmp_seq)
-            print("tokenized data : ", test_data)
-
-            prd_data = tf.keras.preprocessing.sequence.pad_sequences(test_data,value=0,padding='pre',maxlen=128)
-
-            prd_data = tf.data.Dataset.from_tensor_slices(prd_data).batch(1).prefetch(1024)
-
-            for seq in prd_data :
-                prediction = test_step(model, seq)
-                
-                predicted_seq = tokenizer.sequences_to_texts(prediction.numpy())
-                print(predicted_seq)
-                print("predict tokens : ", prediction.numpy())
-
-            predicted_seq = str(predicted_seq[0]).replace(" _ ", "_")
-            predicted_seq = predicted_seq.replace("e (", "e(")
-            predicted_seq = predicted_seq.replace("' ", "'")
-            predicted_seq = predicted_seq.replace(" '", "'")
-            predicted_seq = predicted_seq.replace(" - ", "-")
-            predicted_seq = predicted_seq.replace("+ ", "+")
-            predicted_seq = predicted_seq.replace("- ", "-")
-            print(predicted_seq)
-            query = "select * from stepcountData where " + predicted_seq + ";"
-
-        
-        # if not legend_value or xValue or yValue or response:
-        legend_value.clear()
-        xValue.clear()
-        yValue.clear()
-        response.clear()
-        x1.clear()
-        x2.clear()
-        y1.clear()
-        y2.clear()
-
-        print(legend_value, xValue, yValue, response, x1, x2, y1, y2)
-
-        try:
-            if label == "2":
-                show_weeks_avg(query)
-                print("주별 평균")
-            elif label == "3":
-                show_months_avg(query)
-                print("월별 평균")
-            elif label == "6":
-                if check_week(query) == True:
-                    show_by_week(query)
-                    print('주별비교')
-                else:
-                    show_by_month(query)
-                    print('월별비교')
-
-            else:
-                show_barchart(query)
-                print('바차트')
-        except HTTPError as e:
-            print(e)
-            print("데이터를 불러올 수 없습니다. 텍스트를 다시 입력하세요")
-        except IndexError as e:
-            print(e)
-            print("데이터를 불러올 수 없습니다. 텍스트를 다시 입력하세요")
-        # 예외처리에 대한 알림 메세지 어떻게 출력하는지 보기
-
-        # 딕셔너리에 저장(응답, 쿼리 결과 저장 변수, 라벨)
-        output = dict()
-        if not output:
-            # output['response'] = response
-            output['response'] = "그래프가 출력되었습니다"
-            output['xValues'] = xValue
-            output['yValues'] = yValue
-            output['label'] = label
-            output['legend_value'] = legend_value
-            print(output)
-
-        else: 
-            del output
-            output['response'] = response
-            output['response'] = "그래프가 출력되었습니다"
-            output['xValues'] = xValue
-            output['yValues'] = yValue
-            output['label'] = label
-            output['legend_value'] = legend_value
-            print(output)
-
-        print("-----------------------------------------")
-        print("-----------------------------------------")
-
-        return HttpResponse(json.dumps(output), status=200)
-
-    else:
+    if request.method != 'POST':
         return render(request, 'chat.html')
 
+    # input1 받아옴 + 모델 탑재하고 라벨과 쿼리 받아오기
+    user_input1 = request.POST['input1']
 
-## 함수 및 클래스 ------------------------------------------------------
-def check_week(query):
-    print(str(query))
-    if 'weekday' in str(query):
-        return True
-    else:
-        return False
+    # 유저 입력이 어떠한 종류의 query인지 판별
+    query = get_query(user_input1)
 
-def show_weeks_avg(query):
-    check_num = 0
-    for p in StepCount_Data.objects.raw(query): 
-        date = pd.to_datetime(p.saved_time)
-        print("date", date)
-    
-        if check_num in [0, 7, 14, 21, 28]:
-            x1.append(str(date.month) + '월 ' + str(date.day) + '일 ~ ')
-        elif check_num in [6, 13, 20, 27, 34]:
-            x2.append(str(date.month) + '월 ' + str(date.day) + '일')
+    print('User message="' + user_input1 + '", Query="' + query + '"')
 
-        y1.append(p.stepCount)
+    try:
+        data = [{
+            "date": int(datetime.combine(row.saved_time, datetime.min.time()).timestamp() * 1000),
+            "stepcount": row.stepCount
+        } for row in StepCount_Data.objects.raw(query)]
 
-        check_num = check_num + 1
+        output = {
+            # length field is added for debug purpose, NOT for production.
+            'length': len(data),
+            'data': data,
+        }
 
-    for i in range(5):
-        xValue.append(x1[i] + x2[i])
-        yValue.append(sum(y1[i * 7 : i * 7 + 7])/7)
-        
+        print(output)
 
-    response.append("최근 5주 주별 평균입니다.")
-    legend_value.append(" ")
+        return JsonResponse(output, status=200)
 
-    return xValue, yValue, response, legend_value
+    except HTTPError as e:
+        print(e)
 
-def show_months_avg(query):
-    for p in StepCount_Data.objects.raw(query):
-        date = pd.to_datetime(p.saved_time)
-        print("date", date)
+        # 500 Internal Server Error
+        return JsonResponse({'message': e}, status=500)
 
-        if not xValue:
-            for i in range(5):
-                month = date.month + i
-                xValue.append(str(month) + "월")
+    except IndexError as e:
+        print(e)
 
-        y1.append(p.stepCount)
-        
-    
-    for i in range(5):
-        cnt = i * 30
-        if cnt == 120:
-            div = len(y1) - 119
-            yValue.append(sum(y1[cnt:])/div)
-        elif cnt < 120:
-            yValue.append(sum(y1[cnt:cnt+30])/30)      
-    
-    print("길이", len(yValue))
-    
-    response.append("최근 다섯 달 평균입니다.")
-    legend_value.append(" ")
+        # 406 Not Acceptable
+        return JsonResponse({'message': e}, status=406)
 
-    return xValue, yValue, response, legend_value
-
-def show_barchart(query):
-    for p in StepCount_Data.objects.raw(query):
-        # print(p.saved_time)
-        # 판다스로 날짜 가져옴
-        date = pd.to_datetime(p.saved_time)
-        print("date", date)
-
-        # 범례 비었으면 범례에 월 넣어줌
-        if not legend_value:
-            legend_value.append(str(date.month))
-            print(legend_value)
-
-        # 일과, 걸음수 리스트에 저장
-        xValue.append(date.day)
-        # print(p.stepCount)
-        yValue.append(p.stepCount)
-
-    response.append(legend_value[0] + "월 그래프입니다.")
-
-    return xValue, yValue, response, legend_value
-
-def show_by_week(query):
-    for p in StepCount_Data.objects.raw(query):
-        
-        # 판다스 날짜로 변환, 요일을 추출하여 저장
-        date = pd.to_datetime(p.saved_time)
-        day = date.weekday()
-
-        # 일주일 데이터가 들어왔을 때 범례 저장, 데이터 저장
-        if len(x1) == 7:
-            if legend_value[1] == -1:
-                start = str(date).replace(" 00:00:00","")
-                end = str(date + pd.Timedelta(days = 6)).replace(" 00:00:00","")
-                legend_value[1] = start + ' ~ ' + end
-
-            x2.append(week[day])
-            y2.append(p.stepCount)
-        
-        # 첫 일주일 데이터 범례, 데이터 저장
-        else:
-            if not legend_value:
-                start = str(date).replace(" 00:00:00","")
-                end = str(date + pd.Timedelta(days = 6)).replace(" 00:00:00","")
-                legend_value.append(start + ' ~ ' + end)
-                legend_value.append(-1)
-
-            x1.append(week[day])
-            y1.append(p.stepCount)
-
-    # 데이터 한 변수에 저장
-    xValue.append(x1)
-    xValue.append(x2)
-    # print(p.stepCount)
-    yValue.append(y1)
-    yValue.append(y2)
-
-    response.append(legend_value[0] + "과 " + legend_value[1] + " 비교입니다.")
-
-    return xValue, yValue, response, legend_value
-        
-
-def show_by_month(query):
-    for p in StepCount_Data.objects.raw(query):
-        # print(p.saved_time)
-        # 판다스 날짜로 변환
-        date = pd.to_datetime(p.saved_time)
-
-        # 월을 변수에 저장(첫번째 월)
-        if not legend_value:  
-            legend_value.append(str(date.month))
-            legend_value.append('none')
-            print(legend_value)
-            # 걸음수와 날짜 저장
-            x1.append(date.day)
-            y1.append(p.stepCount)
-
-        # 범례에 값이 있을 때
-        else: 
-            # 범례에 있는 값과 월이 같을 때
-            if legend_value[0] == str(date.month):
-                x1.append(date.day)
-                y1.append(p.stepCount)
-
-            # 범례에 있는 값과 월이 다를 때
-            else:
-                # 월 범례에 저장
-                if legend_value[1] == 'none':
-                    legend_value[1] = str(date.month)
-
-                # 새 변수에 날짜와 걸음수 저장
-                x2.append(date.day)
-                y2.append(p.stepCount)
-                
-    # 범례 01월 같은 달은 0을 빼기
-    for i in range(len(legend_value)):
-        legend_value[i] = legend_value[i] + " 월"
-
-    xValue.append(x1)
-    xValue.append(x2)
-    # print(p.stepCount)
-    yValue.append(y1)
-    yValue.append(y2)
-
-    response.append(legend_value[0] + "과 " + legend_value[1] + " 비교입니다.")
-
-    return xValue, yValue, response, legend_value
 
 class Encoder(tf.keras.Model):
   def __init__(self):
