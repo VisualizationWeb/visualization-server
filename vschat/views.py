@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpRequest
 from django.http import JsonResponse
 from .models import StepCount_Data
 from urllib.error import HTTPError
@@ -140,12 +140,27 @@ def get_query(user_input1: str):
 
 
 # templates 과 view 연결
-def page(request):
+def page(request: HttpRequest):
     return render(request, 'chat.html')
 
 
+def get_stepcount(request: HttpRequest):
+    begin = request.GET.get('begin')
+    end = request.GET.get('end')
+
+    data = [{
+        "date": int(datetime.combine(row.saved_time, datetime.min.time()).timestamp() * 1000),
+        "stepcount": row.stepCount
+    } for row in StepCount_Data.objects.filter(saved_time__range=[begin, end])]
+
+    return JsonResponse({
+        'length': len(data),
+        'data': data,
+    })
+
+
 @csrf_exempt
-def vschat_service(request):
+def vschat_service(request: HttpRequest):
     if request.method != 'POST':
         return render(request, 'chat.html')
 
@@ -190,7 +205,7 @@ def vschat_service(request):
         print('------------------ PRINT OUTPUT ------------------')
         print(json.dumps(output))
 
-        return JsonResponse(output, status=200)
+        return JsonResponse(output)
 
     except HTTPError as e:
         print(e)

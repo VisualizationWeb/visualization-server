@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from vschat.views import page, vschat_service
+from vschat.views import get_stepcount, page, vschat_service
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', page),
     path('chat_service/', vschat_service),
+    path('get_stepcount/', get_stepcount),
 ]
