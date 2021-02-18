@@ -135,7 +135,7 @@ def get_query(user_input1: str):
     predicted_seq = predicted_seq.replace("- ", "-")
     print(predicted_seq)
 
-    result.query = "select * from stepcountData where " + predicted_seq + ";"
+    result.query = "select * from stepcountData where " + predicted_seq + " ORDER BY (saved_time) ASC"
     return result
 
 
@@ -168,6 +168,13 @@ def vschat_service(request):
             "stepcount": row.stepCount
         } for row in StepCount_Data.objects.raw(result.query)]
 
+        compare_with = None
+
+        if result.containsComparison:
+            mid = (len(data) // 2) + 1
+            compare_with = data[1:mid]
+            data = data[mid:]
+
         print('* Data Length=' + str(len(data)))
         print('* Start Date=' + datetime.fromtimestamp(data[0]['date'] // 1000).strftime('%Y-%m-%d'))
         print('* End Date=' + datetime.fromtimestamp(data[-1]['date'] // 1000).strftime('%Y-%m-%d'))
@@ -176,6 +183,7 @@ def vschat_service(request):
             # length field is added for debug purpose, NOT for production.
             'length': len(data),
             'data': data,
+            'compare_with': compare_with,
         }
 
         print()
