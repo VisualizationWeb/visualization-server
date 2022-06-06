@@ -18,9 +18,30 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 import tensorflow as tf
 import konlpy
 from konlpy.tag import *
+import pickle
+
+# kobert package
+import torch
+from torch import nn
+import torch.nn.functional as F
+import torch.optim as optim
+from torch.utils.data import Dataset, DataLoader
+import gluonnlp as nlp
+import numpy as np
+from tqdm import tqdm, tqdm_notebook
+
+#kobert
+from kobert.utils import get_tokenizer
+from kobert.pytorch_kobert import get_pytorch_kobert_model
+
+#GPU 사용
+device = torch.device("cuda:0")
+
+#BERT 모델, Vocabulary 불러오기 필수
+bertmodel, vocab = get_pytorch_kobert_model()
 
 
-NUM_WORDS = 1000
+NUM_WORDS = 500
 
 
 class QueryResult:
@@ -28,87 +49,100 @@ class QueryResult:
     query: str
     contains_comparison: bool = False
 
+def new_softmax(a) : 
+    c = np.max(a) # 최댓값
+    exp_a = np.exp(a-c) # 각각의 원소에 최댓값을 뺀 값에 exp를 취한다. (이를 통해 overflow 방지)
+    sum_exp_a = np.sum(exp_a)
+    y = (exp_a / sum_exp_a) * 100
+    return np.round(y, 3)
 
-def get_query(user_input1: str):
+
+# 예측 모델 설정
+def predict(predict_sentence: str):
+
+    model = torch.load('classification_model.pt')  
+    model.load_state_dict(torch.load('classification_model_state_dict.pt'))
+
+    max_len = 64
+    batch_size = 64
+    
+    # 토큰화
+    tokenizer = get_tokenizer()
+    tok = nlp.data.BERTSPTokenizer(tokenizer, vocab, lower=False)
+
+    data = [predict_sentence, '0']
+    dataset_another = [data]
+
+    another_test = BERTDataset(dataset_another, 0, 1, tok, max_len, True, False)
+    test_dataloader = torch.utils.data.DataLoader(another_test, batch_size=batch_size, num_workers=0)
+    
+    model.eval()
+
+    for batch_id, (token_ids, valid_length, segment_ids, label) in enumerate(test_dataloader):
+        token_ids = token_ids.long().to(device)
+        segment_ids = segment_ids.long().to(device)
+
+        valid_length= valid_length
+        label = label.long().to(device)
+
+        out = model(token_ids, valid_length, segment_ids)
+        
+        test_eval=[]
+        for i in out:
+            logits=i
+            logits = logits.detach().cpu().numpy()
+            min_v = min(logits)
+            total = 0
+            probability = []
+            logits = np.round(new_softmax(logits), 3).tolist()
+            for logit in logits:
+                print(logit)
+                probability.append(np.round(logit, 3))
+
+            if np.argmax(logits) == 0:  emotion = "Today"
+            elif np.argmax(logits) == 1: emotion = "Specify"
+            elif np.argmax(logits) == 2: emotion = 'Compare'
+            
+
+            probability.append(emotion)
+            print(probability)
+    return probability
+
+
+
+def get_query(user_input1: str, label):
     max_len = 40
     vocab_size = 515
     tokenizer = Tokenizer() 
 
-    with open('./static/word_dict_ver03.json', encoding='UTF8') as json_file:
-        word_index = json.load(json_file)
-        tokenizer.word_index = word_index
-
-    # print(tokenizer.word_index)
-
-    okt = Okt()
-
-    tokenized_sentence = []
-    temp_X = okt.morphs(user_input1, stem=True) # 토큰화
-    tokenized_sentence.append(temp_X)
-    print(tokenized_sentence)
-
-    input_data = tokenizer.texts_to_sequences(tokenized_sentence)
-    print(input_data)
-
-    input_data = pad_sequences(input_data, maxlen=max_len) # padding
-
-    loaded_model = load_model('./static/best_model_ver_relu_epc500.h5')
-    prediction = loaded_model.predict(input_data)
-    print(prediction)
-    print("label: ", np.argmax(prediction[0]))
-
-    label = str(np.argmax(prediction[0]))
-
     result = QueryResult()
     result.label = label
 
-    if label == '1':
-        print("일주일")
-        result.query = """
-            SELECT * FROM stepcountData
-                WHERE saved_time
-                BETWEEN date('now', '-7 days', '+1 day') AND date('now')
-            """
-        return result
+    if label == 'Today':
+        with open('./static/today_model/today_tokenizer.pickle', 'rb') as handle:
+            tokenizer = pickle.load(handle)
 
-    if label == '2':
-        print("주별 평균")
-        result.query = """
-            SELECT saved_time, cast(avg(stepCount) AS integer) AS stepCount FROM stepcountData
-                WHERE saved_time BETWEEN DATE('now', 'weekday 0', '-28 days', '+1 day') AND DATE('now')
-                GROUP BY strftime('%Y-%W', saved_time)
-            """
-        return result
+        model = Seq2seq(sos=tokenizer.word_index['\t'], eos=tokenizer.word_index['\n'])
+        model.load_weights("./static/today_model/text_to_sql_today")
+    elif label == 'Specify':
+        with open('./static/specify_model/specify_tokenizer.pickle', 'rb') as handle:
+            tokenizer = pickle.load(handle)
 
-    if label == '3':
-        print("월별 평균")
-        result.query = """
-            SELECT saved_time, cast(avg(stepCount) AS integer) AS stepCount FROM stepcountData
-                WHERE saved_time BETWEEN date('now', 'start of month', '-4 month', 'localtime') AND date('now', '+1 days', 'localtime')
-                GROUP BY strftime('%Y-%m', saved_time)
-            """
-        return result
-
-    if label == '6':
-        result.contains_comparison = True
-        print("주별/월별비교")
-    
+        model = Seq2seq(sos=tokenizer.word_index['\t'], eos=tokenizer.word_index['\n'])
+        model.load_weights("./static/specify_model/text_to_sql_specify")
     else:
-        print("바차트")
+        with open('./static/compare_model/compare_tokenizer.pickle', 'rb') as handle:
+            tokenizer = pickle.load(handle)
 
-    with open('./static/tokenizer_for_attention.json', encoding='UTF8') as f:
-        data = json.load(f)
-        tokenizer = tokenizer_from_json(data)
-        
-    # 모델 생성
-    model = Seq2seq(sos=tokenizer.word_index['\t'], eos=tokenizer.word_index['\n'])
-    model.load_weights("./static/attention_ckpt/attention_ckpt")
+        model = Seq2seq(sos=tokenizer.word_index['\t'], eos=tokenizer.word_index['\n'])
+        model.load_weights("./static/compare_model/text_to_sql_compare")
 
-    # Implement algorithm test
     @tf.function
     def test_step(model, inputs):
         return model(inputs, training=False)
-
+    
+    okt = Okt()
+    
     tmp_seq = [" ".join(okt.morphs(user_input1))]
     print("tmp_seq : ", tmp_seq)
 
@@ -167,8 +201,11 @@ def vschat_service(request: HttpRequest):
     # input1 받아옴 + 모델 탑재하고 라벨과 쿼리 받아오기
     user_input1 = request.POST['input1']
 
+    # 텍스트의 라벨 판별
+    label = predict(user_input1)[-1]
+
     # 유저 입력이 어떠한 종류의 query인지 판별
-    result = get_query(user_input1)
+    result = get_query(user_input1, label)
 
     print()
     print('------------------ PRINT QUERY RESULT ------------------')
@@ -328,3 +365,50 @@ class Seq2seq(tf.keras.Model):
           break
       # stack은 그동안 TensorArray로 받은 값을 쌓아주는 작업을 한다.    
       return tf.reshape(seq.stack(), (1, 128))
+
+
+# kobert class
+class BERTClassifier(nn.Module):
+    def __init__(self,
+                 bert,
+                 hidden_size = 768,
+                 num_classes=3,   ##클래스 수 조정##
+                 dr_rate=None,
+                 params=None):
+        super(BERTClassifier, self).__init__()
+        self.bert = bert
+        self.dr_rate = dr_rate
+                 
+        self.classifier = nn.Linear(hidden_size , num_classes)
+        if dr_rate:
+            self.dropout = nn.Dropout(p=dr_rate)
+    
+    def gen_attention_mask(self, token_ids, valid_length):
+        attention_mask = torch.zeros_like(token_ids)
+        for i, v in enumerate(valid_length):
+            attention_mask[i][:v] = 1
+        return attention_mask.float()
+
+    def forward(self, token_ids, valid_length, segment_ids):
+        attention_mask = self.gen_attention_mask(token_ids, valid_length)
+        
+        _, pooler = self.bert(input_ids = token_ids, token_type_ids = segment_ids.long(), attention_mask = attention_mask.float().to(token_ids.device))
+        if self.dr_rate:
+            out = self.dropout(pooler)
+        return self.classifier(out)
+
+
+class BERTDataset(Dataset):
+    def __init__(self, dataset, sent_idx, label_idx, bert_tokenizer, max_len,
+                 pad, pair):
+        transform = nlp.data.BERTSentenceTransform(
+            bert_tokenizer, max_seq_length=max_len, pad=pad, pair=pair)
+
+        self.sentences = [transform([i[sent_idx]]) for i in dataset]
+        self.labels = [np.int32(i[label_idx]) for i in dataset]
+
+    def __getitem__(self, i):
+        return (self.sentences[i] + (self.labels[i], ))
+
+    def __len__(self):
+        return (len(self.labels)) 
