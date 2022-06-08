@@ -60,8 +60,8 @@ def new_softmax(a) :
 # 예측 모델 설정
 def predict(predict_sentence: str):
 
-    model = torch.load('classification_model.pt')  
-    model.load_state_dict(torch.load('classification_model_state_dict.pt'))
+    model = BERTClassifier(bertmodel, dr_rate=0.5).to(device)
+    model.load_state_dict(torch.load('./static/classification_model/classification_model_state_dict.pt'))
 
     max_len = 64
     batch_size = 64
@@ -111,6 +111,8 @@ def predict(predict_sentence: str):
 
 
 def get_query(user_input1: str, label):
+    tf.enable_eager_execution()
+
     max_len = 40
     vocab_size = 515
     tokenizer = Tokenizer() 
@@ -160,7 +162,8 @@ def get_query(user_input1: str, label):
         print(predicted_seq)
         print("predict tokens : ", prediction.numpy())
 
-    predicted_seq = str(predicted_seq[0]).replace(" _ ", "_")
+    predicted_seq = str(predicted_seq[0])
+    # predicted_seq = str(predicted_seq[0]).replace(" _ ", "_")
     predicted_seq = predicted_seq.replace("e (", "e(")
     predicted_seq = predicted_seq.replace("' ", "'")
     predicted_seq = predicted_seq.replace(" '", "'")
@@ -169,7 +172,7 @@ def get_query(user_input1: str, label):
     predicted_seq = predicted_seq.replace("- ", "-")
     print(predicted_seq)
 
-    result.query = "select * from stepcountData where " + predicted_seq + " ORDER BY (saved_time) ASC"
+    result.query = "select * from stepcountData where date " + predicted_seq + " ORDER BY (saved_time) ASC"
     return result
 
 
@@ -203,6 +206,7 @@ def vschat_service(request: HttpRequest):
 
     # 텍스트의 라벨 판별
     label = predict(user_input1)[-1]
+    print(label)
 
     # 유저 입력이 어떠한 종류의 query인지 판별
     result = get_query(user_input1, label)
