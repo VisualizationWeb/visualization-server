@@ -58,7 +58,6 @@ RUN python3.7 -m pip install torch torchvision --extra-index-url https://downloa
 COPY requirements.txt .
 RUN python3.7 -m pip install -r requirements.txt
 RUN python3.7 -m pip install --upgrade "protobuf<=3.20.1"
-RUN echo 1
 COPY . /app
 
 # Switching to a non-root user, please refer to https://aka.ms/vscode-docker-python-user-rights

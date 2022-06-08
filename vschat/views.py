@@ -172,7 +172,7 @@ def get_query(user_input1: str, label):
     predicted_seq = predicted_seq.replace("- ", "-")
     print(predicted_seq)
 
-    result.query = "select * from stepcountData where date " + predicted_seq + " ORDER BY (saved_time) ASC"
+    result.query = "select * from stepcountData where saved_time " + predicted_seq + " ORDER BY (saved_time) ASC"
     return result
 
 
