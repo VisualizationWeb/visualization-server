@@ -168,3 +168,6 @@ prime/
 stage/
 pip-wheel-metadata/
 .vim/
+
+# pytorch models
+*.pt
