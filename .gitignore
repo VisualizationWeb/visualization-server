@@ -169,5 +169,5 @@ stage/
 pip-wheel-metadata/
 .vim/
 
-# pytorch model
+# pytorch models
 *.pt
